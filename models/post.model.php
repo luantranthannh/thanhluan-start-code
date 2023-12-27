@@ -1,45 +1,45 @@
 <?php
 require_once dirname(dirname(__FILe__)) . '/database/database.php';
 
-function post_insert ($title, $description){
+function Create_New_Post ($title, $description){
     global $connection;
-    $statement = $connection->prepare("insert into posts (title, description) values(:title, :description)");
-    $statement->execute([
+    $sttm = $connection->prepare("insert into posts (title, description) values(:title, :description)");
+    $sttm->execute([
         ':title' => $_POST['title'],
         ':description' => $_POST['description']
     ]);
 }
 
-function post_get_all(){
+function Sellect_All_Post(){
     global $connection;
-    $statement = $connection->prepare("select * from posts");
-    $statement-> execute();
-    $posts = $statement->fetchAll();
+    $sttm = $connection->prepare("select * from posts");
+    $sttm-> execute();
+    $posts = $sttm->fetchAll();
     return $posts;
 }
 
-function post_get($id){
+function Sellect_One_Post ($id){
     global $connection;
-    $statement = $connection->prepare('select * from posts where id =:id');
-    $statement->execute([
+    $sttm = $connection->prepare('select * from posts where id =:id');
+    $sttm->execute([
         ':id' => $id
     ]);
-    $post = $statement->fetch();
+    $post = $sttm->fetch();
     return $post;
 }
 
-function post_delete($id){
+function Delete_Post($id){
     global $connection;
-    $statement = $connection->prepare('delete from posts where id = :id');
-    $statement->execute([
+    $sttm = $connection->prepare('delete from posts where id = :id');
+    $sttm->execute([
         ':id' => $id
     ]);
 }
 
-function post_update($id, $title, $description){
+function Update_Post($id, $title, $description){
     global $connection;
-    $statement = $connection->prepare('update posts set title = :title, description = :description where id = :id');
-    $statement->execute([
+    $sttm = $connection->prepare('update posts set title = :title, description = :description where id = :id');
+    $sttm->execute([
         ':title' =>$_POST['title'],
         ':description' => $_POST['description'],
         ':id' => $_POST['id'] 

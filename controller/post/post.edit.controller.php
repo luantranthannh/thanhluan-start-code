@@ -2,7 +2,7 @@
 require_once dirname(dirname(__DIR__)) . '/models/post.model.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (!empty($_POST['title']) and !empty($_POST['description'])){
-        post_update($id, $_POST['title'], $_POST['description']);
+        Update_Post($id, $_POST['title'], $_POST['description']);
         header('location: /start-code/post');
     }
 }

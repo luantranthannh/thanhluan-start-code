@@ -7,7 +7,7 @@ require_once dirname(dirname(__DIR__)) . '/views/partials/nav.php';
 
     $id = $_GET["id"] ? $_GET["id"] : null;
     if (isset($id)):
-       $post = post_get($id);
+       $post = Sellect_One_Post($id);
 ?>
 <div class="card mt-5">
     <div class="card-body">

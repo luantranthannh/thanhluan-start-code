@@ -6,7 +6,7 @@ require_once dirname(dirname(__DIR__)) . '/models/post.model.php';
 require_once dirname(dirname(__DIR__)) . '/views/partials/head.php';
 require_once dirname(dirname(__DIR__)) . '/views/partials/footer.php';
 
-$posts = post_get_all();
+$posts = Sellect_All_Post();
 ?>
 
   <a href="/start-code/post/create" class="btn btn-primary mt-2">Add Post</a>
